@@ -1,23 +1,26 @@
 import './App.css';
 
-import { Header } from './components/Header';
-import { Home } from './components/Home';
+import React, { Component } from 'react';
+import MyComponent from './components/MyComponent';
 
-function App() {
-  return (
-    <div className="container">
-      <div className="row">
-        <div>
-          <Header/>
-        </div>
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickBtn = this.onClickBtn.bind(this);
+  }
+
+  onClickBtn() {
+    console.log('Button clicked');
+  }
+
+  render() {
+    return (
+      <div>
+        <MyComponent title="React" onButtonClicked={this.onClickBtn} />
       </div>
-      <div className="row">
-        <div>
-          <Home/>
-        </div>
-      </div>
-    </div>
-  );
+    )
+  }
 }
 
 export default App;
